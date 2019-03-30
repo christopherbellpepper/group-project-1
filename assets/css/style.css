@@ -1,5 +1,18 @@
 @import "login.css";
 
 body {
-  background-color: wheat;
+  background-image: url(https://fbcostudentsdotorg.files.wordpress.com/2015/02/well1.jpg);
+  background-color: #cccccc; 
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.container {
+  background-color: #f7f7f7;
+}
+
+#input-data {
+  padding: 10px;
 }
