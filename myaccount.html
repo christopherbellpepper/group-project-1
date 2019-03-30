@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Augmented Bucket List</title>
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
@@ -63,70 +63,14 @@
 
     <br />
 
-    <!-- Login Modal -->
-    <div class="login-modal" id="login-form">
-      <form>
-        <h2 class="text-center">Log in<span class="sarcastic-comment"> (before it's too late)</span></h2>       
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" id="login-button">Log in</button>
-          </div>
-          <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
-          </div>        
-      </form>
-        <p class="text-center"><a href="#" id="create-account">Create an Account</a></p>
-    </div>
-
-    <!-- Input form Side Bar-->
-    <div class="container" id="input-data">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1>Add to your list!</h1>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="item-input">Item Name:</label>
-            <input class="form-control" id="item-input" type="text" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="notes-input">Notes:</label>
-            <input class="form-control" id="notes-input" type="text" />
-          </div>
-        </div>
-        <hr />
-        <!-- Submit Button -->
-          <button id="click-button" type="submit">Submit</button>
-        </div>
-        <hr>
-        <br>
-        
-        <!-- Bucket List -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">List to Kick</th>
-            </tr>
-          </thead>
-          <tbody id="bucket-list-table">
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-
     <!-- Main Data Table -->
     <div class="container" id="main-data-table">
       <div class="row">
         <div class="col-lg-9">
-          Return Data
+          <h1>My Account</h1>
+          <h2>First Name:</h2>
+          <h2>Last Name:</h2>
+          <h2>email:</h2>
         </div>
       </div>
     </div>
@@ -138,5 +82,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
   <script rel="javascript" type="text/javascript" src="assets/javaScript/database.js"></script>
-  <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script>
+  <!-- <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script> -->
 </html>

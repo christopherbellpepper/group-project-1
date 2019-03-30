@@ -1,5 +1,50 @@
 @import "login.css";
 
 body {
-  background-color: wheat;
+  background-image: url(https://fbcostudentsdotorg.files.wordpress.com/2015/02/well1.jpg);
+  background-color: #cccccc; 
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+#list-data-table, #input-data{
+  display: block;
+}
+
+.container {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin: 30px;
+}
+
+#input-data {
+  padding: 10px;
+  max-width: 300px;
+  float: left;
+}
+
+#click-button {
+  margin-bottom: 5px;
+}
+
+#bucket-list-div {
+  padding: 10px;
+  max-width: 300px;
+  float: left;
+}
+
+#main-data-table {
+  padding: 10px;
+  max-width: 900px;
+  max-height: 600px;
+  float: right;
+}
+
+#list-data-table {
+  padding: 10px;
+  max-width: 900px;
+  max-height: 600px;
+  float: right;
 }
