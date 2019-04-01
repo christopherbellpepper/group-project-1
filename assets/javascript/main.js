@@ -2,18 +2,7 @@ $(document).ready(function(){
     $("#login-form").show();
     $("#input-data").hide();
     $("#main-data-table").hide();
-  });
-
-  $('#login-button').on('click', function() {
-    $("#login-form").hide();
-    $("#input-data").show();
-    $("#main-data-table").show();
-  });
-
-  $('#login-button').on('click', function() {
-    $("#login-form").hide();
-    $("#input-data").show();
-    $("#list-data-table").show();
+    autoLogin();
   });
 
   // Initialize Firebase
