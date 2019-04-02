@@ -1,23 +1,47 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD0xosfRSv6pYvR5Vg_VNMtCkuIG6m-vZw",
+    authDomain: "classtest-425b2.firebaseapp.com",
+    databaseURL: "https://classtest-425b2.firebaseio.com",
+    projectId: "classtest-425b2",
+    storageBucket: "classtest-425b2.appspot.com",
+    messagingSenderId: "80198329263"
+  };
+  firebase.initializeApp(config);
 
-var appConfig = {
+// Create a variable to reference the database
+var database = firebase.database();
 
-};
+// Maintain a list of users that are logged in.
+var dbIsConnected = database.ref(".info/connected");
+var dbRefUsersList = database.ref("/active-users");
+var dbConnectionObject = null;
 
-//firebase.initializeApp(appConfig);
+dbIsConnected.on("value", function(snap) {
+     if (snap.val()) {
+         dbConnectionObject = dbRefUsersList.push("temp-name");
+         dbConnectionObject.onDisconnect().remove();
+     }
+});
 
-// Create a variable to reference the database.
-//var database = firebase.database();
+var dbRefProfileInfo = null;
+var dbRefBucketList = null;
 
+function dbReadUserPassword(username) {
+    database.ref("/users/"+username+"/profile").once("value",function(snap) {
+        if (snap.val()) {
+            return snap.val()["password"];
+        }
+        return "";
+    });
+}
 
-// Create all the other references to the database.
-//var dbIsConnected = database.ref(".info/connected");
-//var dbConnectionObject = null;
+function dbCreateProfile(username, profileObject) {
+    database.ref("/users/"+username+"/profile").set(profileObject);
+}
 
-// Register the user's connection to the database.  
-// Will attach a player name to it later.
-// dbIsConnected.on("value", function(snap) {
-//     if (snap.val()) {
-//         dbConnectionObject = dbRefUsersList.push("temp-name");
-//         dbConnectionObject.onDisconnect().remove();
-//     }
-// });
+function dbSetupUserConnections(username) {
+    dbConnectionObject.set(username);
+    dbRefProfileInfo = database.ref("/users/"+username+"/profile");
+    dbRefBucketList = database.ref("/users/"+username+"/list");
+}

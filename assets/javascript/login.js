@@ -41,4 +41,5 @@ function tryLogin(username, password) {
     $("#input-data").show();
     $("#main-data-table").show();
     }
+    dbUserName = username;
 }
