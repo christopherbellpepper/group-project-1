@@ -39,6 +39,6 @@ function tryLogin(username, password) {
     if (dbPassword === password) {
     $("#login-form").hide();
     $("#input-data").show();
-    $("#list-data-table").show();
+    $("#main-data-table").show();
     }
 }

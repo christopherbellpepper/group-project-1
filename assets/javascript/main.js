@@ -49,11 +49,11 @@ $(document).ready(function(){
       // + "<td>" + snapshot.val().newItemNotes + "</td>"
       );
 
-            // append to our list on the "mylist page" 
-            $("#list-data-table").append(
-              "<tr><th>" + snapshot.val().newListItem + "</th>" 
-              + "<td>" + snapshot.val().newItemNotes + "</td>"
-              );
+      // append to our list on the "mylist page" 
+      $("#list-data-table").append(
+      "<tr><th>" + snapshot.val().newListItem + "</th>" 
+      + "<td>" + snapshot.val().newItemNotes + "</td>"
+      );
       
       // Clear the textbox when done
       $(".form-control").val("");
