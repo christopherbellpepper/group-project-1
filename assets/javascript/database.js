@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDDXRngREJJtjYauiNQclihT_NpYdm3IHk",
-    authDomain: "bucket-list-demo.firebaseapp.com",
-    databaseURL: "https://bucket-list-demo.firebaseio.com",
-    projectId: "bucket-list-demo",
-    storageBucket: "bucket-list-demo.appspot.com",
-    messagingSenderId: "119375570390"
+    apiKey: "AIzaSyCRLJCHHqL9S_6swZC3mFVktmygWSxeP20",
+    authDomain: "bucket-list-test-b5799.firebaseapp.com",
+    databaseURL: "https://bucket-list-test-b5799.firebaseio.com",
+    projectId: "bucket-list-test-b5799",
+    storageBucket: "bucket-list-test-b5799.appspot.com",
+    messagingSenderId: "950186374119"
   };
   firebase.initializeApp(config);
 
@@ -29,7 +29,6 @@ dbIsConnected.on("value", function(snap) {
 var dbRefBucketList = null;
 
 function dbCheckLogin(username,password) {
-    console.log("dbCheckLogin",username,password);
     database.ref("/users/"+username).once("value",function(snap) {
         if (snap.val()) {
             var userInfo = snap.val();
@@ -45,13 +44,16 @@ function dbCheckLogin(username,password) {
                 loginSuccess();
                 return;
             }
+            else {
+                // Password doesn't match.
+                loginFailed();
+            }
         }
         else {
-            console.log("no user info");
+            // No such user.
+            loginFailed();
         }
     });
-    console.log('failed login');
-    loginFailed();
 }
 
 function dbCreateUser(username, firstName, lastName, password, email, homeLocation) {
