@@ -34,10 +34,17 @@ function dbCheckLogin(username,password) {
             var userInfo = snap.val();
             if (userInfo["password"] === password) {
                 dbConnectionObject.set(username);
-                dbUserInfo = {"name" : userInfo.username, 
+                dbUserInfo = {"userName" : username, 
                               "email" : userInfo.email,
-                              "home" : userInfo.home};
+                              "home" : userInfo.home,
+                              "firstName" : userInfo.firstName,
+                              "lastName" : userInfo.lastName,
+                              "address" : userInfo.address,
+                              "city" : userInfo.city,
+                              "state" : userInfo.state,
+                              "zipCode" : userInfo.zipCode};
                 dbRefBucketList = database.ref("/users/"+username+"/bucket");
+
                 dbRefBucketList.on("value",function(snap) {
                     dbUserBucketList = snap.val();
                 });
@@ -56,13 +63,28 @@ function dbCheckLogin(username,password) {
     });
 }
 
-function dbCreateUser(username, firstName, lastName, password, email, homeLocation) {
+function dbCreateUser(username, firstName, lastName, password, email, address, city, state, zipCode) {
+    console.log("dbCreateUser");
+
+    // ToDO: prevent someone from creating a user that already exist.
+
     database.ref("/users/"+username).set(" ");
     database.ref("/users/"+username+"/password").set(password);
     database.ref("/users/"+username+"/email").set(email);
-    database.ref("/users/"+username+"/home").set(homeLocation);
-    database.ref("/users/"+username+"/first-name").set(firstName);
-    dataabase.ref("/users/"+username+"/last-name").set(lastName);
+    database.ref("/users/"+username+"/firstName").set(firstName);
+    database.ref("/users/"+username+"/lastName").set(lastName);
+    database.ref("/users/"+username+"/address").set(address);
+    database.ref("/users/"+username+"/city").set(city);
+    database.ref("/users/"+username+"/state").set(state);
+    database.ref("/users/"+username+"/zipCode").set(zipCode);
+
+    dbRefBucketList = database.ref("/users/"+username+"/bucket");
+
+    dbRefBucketList.on("value",function(snap) {
+        dbUserBucketList = snap.val();
+    });
+    loginSuccess();
+    return;
 }
 
 function dbWriteFullList(listObject) {
