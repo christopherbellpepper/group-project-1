@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Augmented Bucket List</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
@@ -66,11 +66,57 @@
     <!-- Main Data Table -->
     <div class="container" id="my-account-table">
       <div class="row">
-        <div class="col-lg-9">
-          <h1>My Account</h1>
-          <h2>First Name:</h2>
-          <h2>Last Name:</h2>
-          <h2>email:</h2>
+        <div class="col-lg-12">
+          <h3>User Name:</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="John">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Smith">
+                </div>
+              </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputUserName">User Name</label>
+                <input type="username" class="form-control" id="inputUserName" placeholder="Morpheus">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">eMail</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="johnsmith@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Beer Street">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </form>
+
         </div>
       </div>
     </div>
