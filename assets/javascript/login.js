@@ -21,18 +21,18 @@ $("#login-button").on("click",function(event) {
         localStorage.setItem("name","");
         localStorage.setItem("code","");
     }
-    tryLogin(username,password);
+    dbCheckLogin(username,password);
 });
 
 function autoLogin() {
     var rememberedUser=localStorage.getItem("name");
     var rememberedPass=localStorage.getItem("code");
     if (rememberedUser && rememberedPass) {
-        tryLogin(rememberedUser,rememberedPass);
+        dbCheckLogin(rememberedUser,rememberedPass);
     }
 }
 
-function tryLogin(username, password) {
+function loginSuccess() {
     // Read the password for the username from the database.
     //var dbPassword = dbReadUserPassword(username);
     dbPassword = password;
@@ -42,4 +42,7 @@ function tryLogin(username, password) {
     $("#main-data-table").show();
     }
     dbUserName = username;
+}
+
+function loginFailed(){
 }
