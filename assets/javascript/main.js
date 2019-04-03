@@ -5,6 +5,48 @@ $(document).ready(function(){
     autoLogin();
   });
 
+  ///////////////      Account Info     ///////////////
+    // User Info Variables //
+    var firstName = "";
+    var lastName = "";
+    var userName = "";
+    var password = "";
+    var email = "";
+    var address = "";
+    var city = "";
+    var state = "";
+    var zipCode = "";
+
+    // Click Button changes what is stored in firebase
+    $("#create-account-button").on("click", function(event) {
+      // Prevent the page from refreshing
+      event.preventDefault();
+    
+        // Get inputs
+        firstName = $("#inputFirstName").val().trim();
+        lastName = $("#inputLastName").val().trim();
+        userName = $("#inputUserName").val().trim();
+        password = $("#inputPassword").val().trim();
+        email = $("#inputEmail").val().trim();
+        address = $("#inputAddress").val().trim();
+        city = $("#inputCity").val().trim();
+        state = $("#inputState").val();
+        zipCode = $("#inputZip").val().trim();
+    
+        // Change what is saved in firebase
+          database.ref().set({
+            firstName: firstName,
+            lastName: lastName,
+            userName: userName,
+            password: password,
+            email: email,
+            address: address,
+            city: city,
+            state: state,
+            zipCode: zipCode
+          });
+    });
+
        // Initial Variables 
      var newListItem = "";
      var newItemNotes = "";  
