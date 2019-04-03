@@ -63,70 +63,60 @@
 
     <br />
 
-    <!-- Login Modal -->
-    <div class="login-modal" id="login-form">
-      <form>
-        <h2 class="text-center">Log in<span class="sarcastic-comment"> (before it's too late)</span></h2>       
-          <div class="form-group">
-            <input type="text" class="form-control" id="login-form-username" placeholder="Username" required="required">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="login-form-password" placeholder="Password" required="required">
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block" id="login-button">Log in</button>
-          </div>
-          <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input id="login-form-remember" type="checkbox"> Remember me</label>
-            <a href="#" class="pull-right">Forgot Password?</a>
-          </div>        
-      </form>
-        <p class="text-center"><a href="#" id="create-account">Create an Account</a></p>
-    </div>
-
-    <!-- Input form Side Bar-->
-    <div class="container" id="input-data">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1>Add to your list!</h1>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="item-input">Item Name:</label>
-            <input class="form-control" id="item-input" type="text" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="notes-input">Notes:</label>
-            <input class="form-control" id="notes-input" type="text" />
-          </div>
-        </div>
-        <hr />
-        <!-- Submit Button -->
-          <button id="click-button" type="submit">Submit</button>
-        </div>
-        <hr>
-        <br>
-        
-        <!-- Bucket List -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th id="short-list-header">Wish List</th>
-            </tr>
-          </thead>
-          <tbody id="bucket-list-table">
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-
     <!-- Main Data Table -->
-    <div class="container" id="main-data-table">
+    <div class="container" id="my-account-table">
       <div class="row">
-        <div class="col-lg-9">
-          Return Data
+        <div class="col-lg-12">
+          <h3>User Name:</h3>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="John">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Smith">
+                </div>
+              </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputUserName">User Name</label>
+                <input type="username" class="form-control" id="inputUserName" placeholder="Morpheus">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">eMail</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="johnsmith@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Beer Street">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+          </form>
+
         </div>
       </div>
     </div>
@@ -138,6 +128,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
   <script rel="javascript" type="text/javascript" src="assets/javaScript/database.js"></script>
-  <script rel="javascript" type="text/javascript" src="assets/javaScript/login.js"></script>
-  <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script>
+  <!-- <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script> -->
 </html>

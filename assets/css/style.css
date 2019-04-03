@@ -1,5 +1,74 @@
 @import "login.css";
 
+/* General */
 body {
-  background-color: wheat;
+  background-image: url(https://fbcostudentsdotorg.files.wordpress.com/2015/02/well1.jpg);
+  background-color: #cccccc; 
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.container {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin: 30px;
+}
+
+/* Index Page */
+#input-data {
+  padding: 10px;
+  max-width: 300px;
+  float: left;
+  display: block;
+}
+
+#click-button {
+  margin-bottom: 5px;
+}
+
+#short-list-header {
+  text-align: center;
+  font-size: 20px;
+}
+
+#main-data-table {
+  padding: 10px;
+  max-width: 900px;
+  max-height: 800px;
+  min-width: 600px;
+  min-height: 600px;
+  float: right;
+}
+
+/* My List Page */
+#list-input-data {
+  padding: 10px;
+  max-width: 1100px;
+  max-height: 800px;
+  margin: auto;
+  display: block;
+}
+
+#list-data-table {
+  padding: 10px;
+  max-width: 1100px;
+  max-height: 800px;
+  margin: auto;
+  display: block;
+}
+
+#list-header {
+  text-align: center;
+  font-size: 28px;
+}
+
+/* My Account Page */
+#my-account-table {
+  padding: 10px;
+  max-width: 900px;
+  max-height: 600px;
+  margin: auto;
+  display: block;
 }
