@@ -43,20 +43,7 @@ $(document).ready(function(){
     // When changes occurs it will print them to console and html
     database.ref().on("value", function(snapshot) {
 
-      // append to our sidebar table 
-      $("#bucket-list-table").append(
-      "<tr><th>" + snapshot.val().newListItem + "</th>" 
-      // + "<td>" + snapshot.val().newItemNotes + "</td>"
-      );
-
-      // append to our list on the "mylist page" 
-      $("#list-data-table").append(
-      "<tr><th>" + snapshot.val().newListItem + "</th>" 
-      + "<td>" + snapshot.val().newItemNotes + "</td>"
-      );
       
-      // Clear the textbox when done
-      $(".form-control").val("");
     });
 
 

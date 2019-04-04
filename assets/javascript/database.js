@@ -46,7 +46,10 @@ function dbCheckLogin(username,password) {
                 dbRefBucketList = database.ref("/users/"+username+"/bucket");
 
                 dbRefBucketList.on("value",function(snap) {
+                    console.log("snapval",snap);
                     dbUserBucketList = snap.val();
+                    console.log("dbCheckLogin bucket list",dbUserBucketList);
+                    displayMyList();
                 });
                 loginSuccess();
                 return;
@@ -68,7 +71,7 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
 
     // ToDO: prevent someone from creating a user that already exist.
 
-    database.ref("/users/"+username).set(" ");
+    //database.ref("/users/"+username).set(" ");
     database.ref("/users/"+username+"/password").set(password);
     database.ref("/users/"+username+"/email").set(email);
     database.ref("/users/"+username+"/firstName").set(firstName);
@@ -81,12 +84,49 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
     dbRefBucketList = database.ref("/users/"+username+"/bucket");
 
     dbRefBucketList.on("value",function(snap) {
+        console.log("snapval",snap);
         dbUserBucketList = snap.val();
+        console.log("dbCreateUser bucket list");
+        displayMyList();
     });
+
+    var firstWish = {"wish" : "Create a Bucket List",
+                     "priority": "1",
+                     "notes" : "Fill me out before it's too late!!"};
+    dbRefBucketList.set(firstWish);
+
+
+
     loginSuccess();
     return;
 }
 
 function dbWriteFullList(listObject) {
     dbRefBucketList.set(listObject);
+}
+
+function displayMyList()
+{
+    console.log("displayMyList",dbUserBucketList);
+    console.log("list length",dbUserBucketList.length);
+    $listSection = $("#bucket-list-table");
+    $listSection.empty();
+
+    for (var i=0; i < dbUserBucketList.length; i++) {
+        console.log(dbUserBucketList[i]);
+    }
+    // // append to our sidebar table 
+    // ).append(
+    //     "<tr><th>" + snapshot.val().newListItem + "</th>" 
+    //     // + "<td>" + snapshot.val().newItemNotes + "</td>"
+    //     );
+  
+    //     // append to our list on the "mylist page" 
+    //     $("#list-data-table").append(
+    //     "<tr><th>" + snapshot.val().newListItem + "</th>" 
+    //     + "<td>" + snapshot.val().newItemNotes + "</td>"
+    //     );
+        
+    //     // Clear the textbox when done
+    //     $(".form-control").val("");
 }
