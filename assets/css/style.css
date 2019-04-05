@@ -28,6 +28,12 @@ body {
   margin-bottom: 5px;
 }
 
+#wish-list {
+  padding: 10px;
+  max-width: 300px;
+  float: left;
+}
+
 #short-list-header {
   text-align: center;
   font-size: 20px;
