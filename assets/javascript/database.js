@@ -46,7 +46,7 @@ function dbCheckLogin(username,password) {
                 dbRefBucketList = database.ref("/users/"+username+"/bucket");
 
                 dbRefBucketList.on("value",function(snap) {
-                    console.log("snapval",snap);
+                    console.log("list snapval",snap);
                     if (snap.val()) {                    
                         dbUserBucketList = snap.val();
                         console.log("dbCheckLogin bucket list",dbUserBucketList);
@@ -95,13 +95,16 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
     var wishArray = [];
     wishArray[0] = {"wish" : "Create a Bucket List",
                      "priority": "1",
-                     "notes" : "Fill me out before it's too late!!"};
+                     "notes" : "Fill me out before it's too late!!",
+                     "location" : "Current",
+                     "coords" : getStoredCoordinates("current-location")};
     dbRefBucketList.set(wishArray);
     loginSuccess();
     return;
 }
 
 function dbWriteFullList(listObject) {
+    console.log("Write full bucket list",listObject);
     dbRefBucketList.set(listObject);
 }
 

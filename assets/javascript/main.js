@@ -5,6 +5,15 @@ $(document).ready(function(){
     autoLogin();
   });
 
+function isEmptyOrSpaces(str){
+  return str === null || str.match(/^ *$/) !== null;
+}
+
+function showInfoMessage(msg) {
+  alert(msg);
+}
+
+
   ///////////////      Account Info     ///////////////
     // User Info Variables //
     var firstName = "";

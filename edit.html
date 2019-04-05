@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
 <body>
-    <div id="edit-div">
-        <h1 id="edit-item-header">Edit item</h1>
+    <div id="edit-div">        
         <div class="container">
+             <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="container">
@@ -55,8 +55,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-between">
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-warning btn-block" id="add-item-cancel">Cancel</button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary btn-block" id="add-item-save">Save</button>
+                </div>
+            </div>
         </div>
-    </div>d
+        <div id="reference-info" style="display:none">
+            <span id="map-lat">0</span>
+            <span id="map-lng">0</span>
+            <span id="item-index">0</span>
+        </div>
+    </div>
 </body>
 
   <!-- <<<<<javaScript Links>>>>> -->
