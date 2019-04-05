@@ -41,3 +41,5 @@ $(document).ready(function(){
       newList.push(newItem);
       dbWriteFullList(newList);
     });
+
+    getCurrentLocation();

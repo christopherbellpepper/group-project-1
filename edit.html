@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body>
+    <div id="edit-div">
+        <h1 id="edit-item-header">Edit item</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="col-sm-2">              
+                                Item Name:
+                            </div>
+                            <div class="col-sm-10"> 
+                                <input class="form-control" id="item-input" type="text"/>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-sm-2">              
+                                Description:
+                            </div>
+                            <div class="col-sm-10"> 
+                                <input class="form-control" id="item-description" type="text"/>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-sm-2">              
+                                Location Type:
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="checkbox" name="loc-type1" value="Place"> A specific, unique place<br>
+                                <input type="checkbox" name="loc-type2" value="Nearby"> Nearest place that matches<br>           
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-sm-2">              
+                                Location:
+                            </div>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="item-location" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="map-display">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>d
+</body>
+
+  <!-- <<<<<javaScript Links>>>>> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlppE1f4yIN3TW5Rwo7x_c7qAOBSmuFy0"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/database.js"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/login.js"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/location.js"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/edititem.js"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/profile.js"></script>
+    <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script>
+</html>
