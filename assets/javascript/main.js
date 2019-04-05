@@ -33,17 +33,11 @@ $(document).ready(function(){
       newItemNotes = $("#notes-input").val().trim();
 
       // Change what is saved in firebase
-      database.ref().set({
-        newListItem: newListItem,
-        newItemNotes: newItemNotes,
-      });
+      var newList = dbUserBucketList;
+      var newItem = {"wish" : newListItem,
+                     "priority": "5",
+                    "notes" : newItemNotes};
+
+      newList.push(newItem);
+      dbWriteFullList(newList);
     });
-
-    // Firebase 
-    // When changes occurs it will print them to console and html
-    database.ref().on("value", function(snapshot) {
-
-      
-    });
-
-

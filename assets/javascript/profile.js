@@ -16,4 +16,5 @@ $("#create-account-button").on("click", function(event) {
   
       // Change what is saved in firebase
       dbCreateUser(userName, firstName, lastName, password, email, address, city, state, zipCode);
+      window.location.replace('./index.html');
   });
