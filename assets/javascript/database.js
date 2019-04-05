@@ -17,7 +17,7 @@ var dbIsConnected = database.ref(".info/connected");
 var dbRefUsersList = database.ref("/active-users");
 var dbConnectionObject = null;
 var dbUserInfo = null;
-var dbUserBucketList = null;
+var dbUserBucketList = [];
 
 dbIsConnected.on("value", function(snap) {
      if (snap.val()) {
@@ -47,9 +47,11 @@ function dbCheckLogin(username,password) {
 
                 dbRefBucketList.on("value",function(snap) {
                     console.log("snapval",snap);
-                    dbUserBucketList = snap.val();
-                    console.log("dbCheckLogin bucket list",dbUserBucketList);
-                    displayMyList();
+                    if (snap.val()) {                    
+                        dbUserBucketList = snap.val();
+                        console.log("dbCheckLogin bucket list",dbUserBucketList);
+                        displayMyList();
+                    }
                 });
                 loginSuccess();
                 return;
@@ -90,13 +92,11 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
         displayMyList();
     });
 
-    var firstWish = {"wish" : "Create a Bucket List",
+    var wishArray = [];
+    wishArray[0] = {"wish" : "Create a Bucket List",
                      "priority": "1",
                      "notes" : "Fill me out before it's too late!!"};
-    dbRefBucketList.set(firstWish);
-
-
-
+    dbRefBucketList.set(wishArray);
     loginSuccess();
     return;
 }
@@ -107,26 +107,19 @@ function dbWriteFullList(listObject) {
 
 function displayMyList()
 {
+    if (!dbUserBucketList) {
+        dbUserBucketList = [];
+    }
     console.log("displayMyList",dbUserBucketList);
     console.log("list length",dbUserBucketList.length);
-    $listSection = $("#bucket-list-table");
-    $listSection.empty();
+    listSection = $("#bucket-list-table");
+    listSection.empty();
 
     for (var i=0; i < dbUserBucketList.length; i++) {
-        console.log(dbUserBucketList[i]);
+        var newListRow = $("<tr>");
+        var newListColumn = $("<td>");
+        newListColumn.text(dbUserBucketList[i].wish);
+        newListRow.append(newListColumn);
+        listSection.append(newListRow);
     }
-    // // append to our sidebar table 
-    // ).append(
-    //     "<tr><th>" + snapshot.val().newListItem + "</th>" 
-    //     // + "<td>" + snapshot.val().newItemNotes + "</td>"
-    //     );
-  
-    //     // append to our list on the "mylist page" 
-    //     $("#list-data-table").append(
-    //     "<tr><th>" + snapshot.val().newListItem + "</th>" 
-    //     + "<td>" + snapshot.val().newItemNotes + "</td>"
-    //     );
-        
-    //     // Clear the textbox when done
-    //     $(".form-control").val("");
 }
