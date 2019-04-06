@@ -34,7 +34,6 @@ function receiveGeocode(tag,geocodeObject) {
 function getGeocodeOfLocation(tag,location) {
     var apiRootURL="https://maps.googleapis.com/maps/api/geocode/json?";
     var apiQueryUrl=encodeURI(`${apiRootURL}address=${location}&key=${googleApiKey}`);
-      console.log(location);
     $.ajax({
         url: apiQueryUrl,
         method: "GET"
