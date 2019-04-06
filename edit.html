@@ -9,17 +9,54 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
 <body>
-    <div id="edit-div">        
-        <div class="container">
-             <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="container">
-                        <div class="row mt-4">
-                            <div class="col-sm-2">              
-                                Item Name:
-                            </div>
-                            <div class="col-sm-10"> 
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Kick your Bucket List!</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu</a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="mylist.html">My List</a>
+                    <a class="dropdown-item" href="edit.html">edit.html</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="myaccount.html">My Account</a>
+                  </div>
+                </li>
+              </ul>
+                <script>
+                    (function() {
+                      var cx = '001206202742235563484:z58b2c7qceg';
+                      var gcse = document.createElement('script');
+                      gcse.type = 'text/javascript';
+                      gcse.async = true;
+                      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                      var s = document.getElementsByTagName('script')[0];
+                      s.parentNode.insertBefore(gcse, s);
+                    })();
+                  </script>
+                  <gcse:search></gcse:search>
+              </form>
+            </div>
+          </nav>
+          <br />
+
+  <div id="edit-div">        
+    <div class="container">
+      <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="container">
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Item Name:
+                </div>
+                <div class="col-sm-10"> 
                                 <input class="form-control" id="item-input" type="text"/>
                             </div>
                         </div>
