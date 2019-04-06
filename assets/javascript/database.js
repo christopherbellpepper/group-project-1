@@ -29,7 +29,7 @@ dbIsConnected.on("value", function(snap) {
 var dbRefBucketList = null;
 
 function dbCheckLogin(username,password) {
-    console.log("dbCheckLogin", update + " " + password);
+    console.log("dbCheckLogin", username + " " + password);
     database.ref("/users/"+username).once("value",function(snap) {
         if (snap.val()) {
             var userInfo = snap.val();
