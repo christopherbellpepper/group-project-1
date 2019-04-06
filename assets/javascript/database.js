@@ -113,8 +113,7 @@ function displayMyList()
     if (!dbUserBucketList) {
         dbUserBucketList = [];
     }
-    console.log("displayMyList",dbUserBucketList);
-    console.log("list length",dbUserBucketList.length);
+    
     listSection = $("#bucket-list-table");
     listSection.empty();
 

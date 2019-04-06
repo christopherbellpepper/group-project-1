@@ -10,8 +10,15 @@ function isEmptyOrSpaces(str){
 }
 
 function showInfoMessage(msg) {
-  alert(msg);
+  console.log("showInfoMessage",msg);
+  modelDiv = $("#usernotify-modal");
+  $("#usernotify-message").text(msg);
+  modelDiv.css("display","block");
 }
+
+$("#usernotify-button").on("click",function(event) {
+  modelDiv.css("display","none");
+});
 
 
   ///////////////      Account Info     ///////////////
@@ -51,4 +58,4 @@ function showInfoMessage(msg) {
       dbWriteFullList(newList);
     });
 
-    getCurrentLocation();
+    //getCurrentLocation();
