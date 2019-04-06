@@ -88,3 +88,5 @@ function populateItemDataView(itemIndex) {
      displayMainMap(itemInfo.coords);    
   }
 }
+
+getCurrentLocation();
