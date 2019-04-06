@@ -46,10 +46,8 @@ function dbCheckLogin(username,password) {
                 dbRefBucketList = database.ref("/users/"+username+"/bucket");
 
                 dbRefBucketList.on("value",function(snap) {
-                    console.log("list snapval",snap);
                     if (snap.val()) {                    
                         dbUserBucketList = snap.val();
-                        console.log("dbCheckLogin bucket list",dbUserBucketList);
                         displayMyList();
                     }
                 });
@@ -69,8 +67,6 @@ function dbCheckLogin(username,password) {
 }
 
 function dbCreateUser(username, firstName, lastName, password, email, address, city, state, zipCode) {
-    console.log("dbCreateUser");
-
     // ToDO: prevent someone from creating a user that already exist.
 
     //database.ref("/users/"+username).set(" ");
@@ -86,10 +82,8 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
     dbRefBucketList = database.ref("/users/"+username+"/bucket");
 
     dbRefBucketList.on("value",function(snap) {
-        console.log("snapval",snap);
-        dbUserBucketList = snap.val();
-        console.log("dbCreateUser bucket list");
-        displayMyList();
+         dbUserBucketList = snap.val();
+         displayMyList();
     });
 
     var wishArray = [];
@@ -104,7 +98,6 @@ function dbCreateUser(username, firstName, lastName, password, email, address, c
 }
 
 function dbWriteFullList(listObject) {
-    console.log("Write full bucket list",listObject);
     dbRefBucketList.set(listObject);
 }
 

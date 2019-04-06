@@ -10,14 +10,13 @@ function isEmptyOrSpaces(str){
 }
 
 function showInfoMessage(msg) {
-  console.log("showInfoMessage",msg);  
   $("#usernotify-message").text(msg);
   modelDiv = $("#usernotify-modal");
   modelDiv.css("display","block");
 }
 
 $("#add-item-btn").on("click",function(event) {
-  
+  editItem(-1);
 });
 
 $("#usernotify-button").on("click",function(event) {
@@ -62,7 +61,6 @@ function displayMainMap(coord) {
 }
 
 function populateItemDataView(itemIndex) {
-  console.log("itemIndex",itemIndex);
   var itemInfo = dbUserBucketList[itemIndex];
 
   if (itemInfo.wish) {
@@ -87,7 +85,8 @@ function populateItemDataView(itemIndex) {
   }
 
   if (itemInfo.coords) {
-    console.log("Coordinates",itemInfo.coords);
-    displayMainMap(itemInfo.coords);    
+     displayMainMap(itemInfo.coords);    
   }
 }
+
+getCurrentLocation();

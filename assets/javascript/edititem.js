@@ -40,7 +40,6 @@ function setMap(location) {
 }
 
 function editItem(itemIndex) {
-  console.log("editItem",itemIndex);
   $("#edit-div").css("display","block");
 
   if (itemIndex < 0 || itemIndex >= dbUserBucketList.length) {
@@ -78,8 +77,6 @@ function editItem(itemIndex) {
 
 // When the user changes the value on the field 
 $("#item-location").on("change", function(event) {
-  console.log("Item Location Field changed",event);
-  console.log("New Value",$("#item-location").val());
   setMap($("#item-location").val());
 });
 
