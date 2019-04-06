@@ -29,6 +29,7 @@ dbIsConnected.on("value", function(snap) {
 var dbRefBucketList = null;
 
 function dbCheckLogin(username,password) {
+    console.log("dbCheckLogin", username + " " + password);
     database.ref("/users/"+username).once("value",function(snap) {
         if (snap.val()) {
             var userInfo = snap.val();
@@ -56,11 +57,13 @@ function dbCheckLogin(username,password) {
             }
             else {
                 // Password doesn't match.
+                showInfoMessage("Password incorrect");
                 loginFailed();
             }
         }
         else {
             // No such user.
+            showInfoMessage("No such user");
             loginFailed();
         }
     });
