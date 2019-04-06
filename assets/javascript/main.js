@@ -5,44 +5,89 @@ $(document).ready(function(){
     autoLogin();
   });
 
-       // Initial Variables 
-     var newListItem = "";
-     var newItemNotes = "";  
+function isEmptyOrSpaces(str){
+  return str === null || str.match(/^ *$/) !== null;
+}
 
-    // Click Button changes what is stored in firebase
-      $("#click-button").on("click", function(event) {
-      // Prevent the page from refreshing
-      event.preventDefault();
+function showInfoMessage(msg) {
+  console.log("showInfoMessage",msg);  
+  $("#usernotify-message").text(msg);
+  modelDiv = $("#usernotify-modal");
+  modelDiv.css("display","block");
+}
 
-      // Get inputs
-      newListItem = $("#item-input").val().trim();
-      newItemNotes = $("#notes-input").val().trim();
+$("#add-item-btn").on("click",function(event) {
+  
+});
 
-      // Change what is saved in firebase
-      database.ref().set({
-        newListItem: newListItem,
-        newItemNotes: newItemNotes,
-      });
-    });
+$("#usernotify-button").on("click",function(event) {
+  modelDiv.css("display","none");
+});
 
-    // Firebase 
-    // When changes occurs it will print them to console and html
-    database.ref().on("value", function(snapshot) {
+$("#bucket-list-table").on("mouseenter",".wish-item-name",function(event) {
+  this.style.background = "lightgreen";
+});
 
-      // append to our sidebar table 
-      $("#bucket-list-table").append(
-      "<tr><th>" + snapshot.val().newListItem + "</th>" 
-      // + "<td>" + snapshot.val().newItemNotes + "</td>"
-      );
+$("#bucket-list-table").on("mouseleave",".wish-item-name",function() {
+  this.style.background = "none";
+});
 
-      // append to our list on the "mylist page" 
-      $("#list-data-table").append(
-      "<tr><th>" + snapshot.val().newListItem + "</th>" 
-      + "<td>" + snapshot.val().newItemNotes + "</td>"
-      );
-      
-      // Clear the textbox when done
-      $(".form-control").val("");
-    });
+$("#bucket-list-table").on("click",".wish-item-name",function() {
+  populateItemDataView(parseInt(this.getAttribute("wish-item-index")));
+});
 
+$("#bucket-list-table").on("click","button",function() {
+  if (this.hasAttribute("data-subtract")) {
+    deleteItem(parseInt(this.getAttribute("data-subtract")));
+  }
+  else if (this.hasAttribute("data-edit")) {
+    editItem(parseInt(this.getAttribute("data-edit")));
+  }
+});
 
+function displayMainMap(coord) {
+  if (!coord) {
+    coord = {};
+    coord.lat = -22.9068;
+    coord.lng = -43.1729;
+  }
+
+  var mapProp= {
+    center:new google.maps.LatLng(coord.lat,coord.lng),
+    zoom:5,
+  };
+
+  var mapSection = document.getElementById("item-data-location-map");
+  var map = new google.maps.Map(mapSection,mapProp);
+}
+
+function populateItemDataView(itemIndex) {
+  console.log("itemIndex",itemIndex);
+  var itemInfo = dbUserBucketList[itemIndex];
+
+  if (itemInfo.wish) {
+    $("#item-data-name").text(itemInfo.wish);
+  }
+  else {
+    $("#item-data-name").text("");
+  }
+
+  if (itemInfo.notes) {
+    $("#item-data-description").text(itemInfo.notes);
+  }
+  else {
+    $("#item-data-description").text("");
+  }
+
+  if (itemInfo.location) {
+    $("#item-data-location-name").text(itemInfo.location);
+  }
+  else {
+    $("#item-data-location-name").text("");
+  }
+
+  if (itemInfo.coords) {
+    console.log("Coordinates",itemInfo.coords);
+    displayMainMap(itemInfo.coords);    
+  }
+}

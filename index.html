@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Augmented Bucket List</title>
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
@@ -13,50 +12,32 @@
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.html">Kick your Bucket List!</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Menu
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Menu</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="mylist.html">My List</a>
-              <a class="dropdown-item" href="#">Action #2</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="myaccount.html">My Account</a>
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Get some ideas..."
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
+          <script>
+              (function() {
+                var cx = '001206202742235563484:z58b2c7qceg';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
         </form>
       </div>
     </nav>
@@ -81,63 +62,133 @@
             <a href="#" class="pull-right">Forgot Password?</a>
           </div>        
       </form>
-        <p class="text-center"><a href="#" id="create-account">Create an Account</a></p>
+        <p class="text-center"><a href="myaccount.html" id="create-account">Create an Account</a></p>
     </div>
 
-    <!-- Input form Side Bar-->
-    <div class="container" id="input-data">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1>Add to your list!</h1>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="item-input">Item Name:</label>
-            <input class="form-control" id="item-input" type="text" />
+    <!-- Bucket List -->
+    <div class="container" id="wish-list">
+      <table class="table">
+        <thead>
+          <div class="row">
+            <div class="col-6">
+                <span id="short-list-header"> Edit </span>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-success btn-block" id="add-item-btn">add +</button>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <label for="notes-input">Notes:</label>
-            <input class="form-control" id="notes-input" type="text" />
-          </div>
-        </div>
-        <hr />
-        <!-- Submit Button -->
-          <button id="click-button" type="submit">Submit</button>
-        </div>
-        <hr>
-        <br>
-        
-        <!-- Bucket List -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th id="short-list-header">Wish List</th>
-            </tr>
-          </thead>
-          <tbody id="bucket-list-table">
-
-          </tbody>
-        </table>
-      </div>
-    </div>
+        </thead>
+        <tbody id="bucket-list-table">
+        </tbody>
+      </table>
+    </div>     
 
     <!-- Main Data Table -->
-    <div class="container" id="main-data-table">
-      <div class="row">
-        <div class="col-lg-9">
-          Return Data
-        </div>
+    <div class="container" id="item-data-view">
+      <div> 
+        <h4 id="item-data-name"></h4>
+        <h6 id="item-data-description"></h6>
+      </div>
+
+      <div id="item-data-location-container">
+        <div id="item-data-location-name"></div>
+        <div id="item-data-location-map"></div>
       </div>
     </div>
+
+    <div id="usernotify-modal">
+      <div id="usernotify-message">
+      </div>
+      <hr>
+      <div id="usernotify-button-container">
+        <button id="usernotify-button" type="submit">Ok</button>
+      </div>
+    </div>
+
+    <!----   Add / Edit item modal --->
+      <div class="container" id="edit-div">
+      <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="container" id="edit-input-div">
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                Item Name:
+                </div>
+
+                <div class="col-sm-10"> 
+                <input class="form-control" id="item-input" type="text"/>
+                </div>
+              </div>
+              
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Description:
+                </div>
+                
+                <div class="col-sm-10"> 
+                  <input class="form-control" id="item-description" type="text"/>
+                </div>
+              </div>
+                          
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Location Type:
+                </div>
+                              
+                <div class="col-sm-10">
+                  <input type="checkbox" name="loc-type1" value="Place"> A specific, unique place<br>
+                  <input type="checkbox" name="loc-type2" value="Nearby"> Nearest place that matches<br>           
+                </div>
+              </div>
+              
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Location:
+                </div>
+                <div class="col-sm-10">
+                  <input class="form-control" id="item-location" type="text"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-4">
+            <div id="map-display">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-warning btn-block" id="add-item-cancel">Cancel</button>
+          </div>
+          
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-primary btn-block" id="add-item-save">Save</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="reference-info" style="display:none">
+        <span id="map-lat">0</span>
+        <span id="map-lng">0</span>
+        <span id="item-index">0</span>
+      </div>
+
   </body>
 
   <!-- <<<<<javaScript Links>>>>> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlppE1f4yIN3TW5Rwo7x_c7qAOBSmuFy0"></script>
   <script rel="javascript" type="text/javascript" src="assets/javaScript/database.js"></script>
   <script rel="javascript" type="text/javascript" src="assets/javaScript/login.js"></script>
+  <script rel="javascript" type="text/javascript" src="assets/javaScript/location.js"></script>
+  <script rel="javascript" type="text/javascript" src="assets/javaScript/edititem.js"></script>
+  <script rel="javascript" type="text/javascript" src="assets/javaScript/profile.js"></script>
   <script rel="javascript" type="text/javascript" src="assets/javaScript/main.js"></script>
 </html>

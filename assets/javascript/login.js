@@ -32,17 +32,13 @@ function autoLogin() {
     }
 }
 
+// Called when the database login is successful.
 function loginSuccess() {
-    // Read the password for the username from the database.
-    //var dbPassword = dbReadUserPassword(username);
-    dbPassword = password;
-    if (dbPassword === password) {
     $("#login-form").hide();
     $("#input-data").show();
     $("#main-data-table").show();
-    }
-    dbUserName = username;
 }
 
+// Called when the database login has failed.
 function loginFailed(){
 }
