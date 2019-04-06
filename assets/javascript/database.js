@@ -108,6 +108,20 @@ function dbWriteFullList(listObject) {
     dbRefBucketList.set(listObject);
 }
 
+function deleteItem(index) {
+    if (!dbUserBucketList) {
+        return;
+    }
+
+    if (index < 0 || index >= dbUserBucketList) {
+        return;
+    }
+
+    var newArray = dbUserBucketList;    
+    newArray.splice(index,1);
+    dbWriteFullList(newArray);
+}
+
 function displayMyList()
 {
     if (!dbUserBucketList) {
@@ -123,15 +137,24 @@ function displayMyList()
         // First column of every row will be a set of buttons.
         var newListColumn = $("<td>");
         var newButtonDiv = $("<div>");
-        var wishButton = $("<button>");
-        wishButton.addClass('cancel');
-        wishButton.text('X');
-        newButtonDiv.append(wishButton);
+
+        var cancelButton = $("<button>");
+        cancelButton.addClass('listButton');
+        cancelButton.text('✓');
+        cancelButton.attr("data-subtract",i)
+        newButtonDiv.append(cancelButton);
+        var editButton = $('<button>');
+        editButton.addClass('listButton');
+        editButton.text('e');
+        newButtonDiv.append(editButton);
+        editButton.attr("data-edit",i)
         newListColumn.append(newButtonDiv);
         newListRow.append(newListColumn);
 
         // Second column of the row will be the wish (title).
         newListColumn = $("<td>");
+        newListColumn.addClass("wish-item-name");
+        newListColumn.attr("wish-item-index",i);
         newListColumn.text(dbUserBucketList[i].wish);
         newListRow.append(newListColumn);
         listSection.append(newListRow);

@@ -32,10 +32,58 @@ $("#bucket-list-table").on("click",".wish-item-name",function() {
   populateItemDataView(parseInt(this.getAttribute("wish-item-index")));
 });
 
-$("#bucket-list-table").on("click","btn",function() {
-  console.log("click button",this.getAttribute("wish-item-index"));
+$("#bucket-list-table").on("click","button",function() {
+  if (this.hasAttribute("data-subtract")) {
+    deleteItem(parseInt(this.getAttribute("data-subtract")));
+  }
+  else if (this.hasAttribute("data-edit")) {
+    editItem(parseInt(this.getAttribute("data-edit")));
+  }
 });
 
-function populateItemDataView(index) {
-  
+function displayMainMap(coord) {
+  if (!coord) {
+    coord = {};
+    coord.lat = -22.9068;
+    coord.lng = -43.1729;
+  }
+
+  var mapProp= {
+    center:new google.maps.LatLng(coord.lat,coord.lng),
+    zoom:5,
+  };
+
+  var mapSection = document.getElementById("item-data-location-map");
+  var map = new google.maps.Map(mapSection,mapProp);
+}
+
+function populateItemDataView(itemIndex) {
+  console.log("itemIndex",itemIndex);
+  var itemInfo = dbUserBucketList[itemIndex];
+
+  if (itemInfo.wish) {
+    $("#item-data-name").text(itemInfo.wish);
+  }
+  else {
+    $("#item-data-name").text("");
+  }
+
+  if (itemInfo.notes) {
+    $("#item-data-description").text(itemInfo.notes);
+  }
+  else {
+    $("#item-data-description").text("");
+  }
+
+  if (itemInfo.location) {
+    $("#item-data-location-name").text(itemInfo.location);
+  }
+  else {
+    $("#item-data-location-name").text("");
+  }
+
+  if (itemInfo.coords) {
+    console.log("Coordinates",itemInfo.coords);
+    displayMainMap(itemInfo.coords);    
+  }
 }
