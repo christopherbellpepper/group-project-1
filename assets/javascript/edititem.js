@@ -44,9 +44,11 @@ function editItem(itemIndex) {
 
   if (itemIndex < 0 || itemIndex >= dbUserBucketList.length) {
     var itemInfo = {};
+    $("#item-index").text("-1");
   }
   else {
     var itemInfo = dbUserBucketList[itemIndex];
+    $("#item-index").text(itemIndex);
   }
 
   if (itemInfo.wish) {
@@ -87,7 +89,8 @@ $("#add-item-cancel").on("click", function(event) {
 
 // Handle when the user clicks 'save' on the edit modal
 $("#add-item-save").on("click", function(event) {
-  var storedItemIndex = $("item-index").text();
+  var storedItemIndex = $("#item-index").text();
+
   if (isEmptyOrSpaces(storedItemIndex)) {
     var itemIndex = dbUserBucketList.length;
   }
@@ -122,7 +125,8 @@ $("#add-item-save").on("click", function(event) {
                   "coords" : coords};
 
   var newList = dbUserBucketList;
-  if (itemIndex >= dbUserBucketList.length) {
+
+  if (itemIndex >= newList.length) {
     newList.push(wishItem);
   }
   else {
