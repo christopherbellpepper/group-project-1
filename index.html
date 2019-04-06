@@ -22,9 +22,6 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Menu</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="mylist.html">My List</a>
-              <a class="dropdown-item" href="edit.html">edit.html</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="myaccount.html">My Account</a>
             </div>
           </li>
@@ -72,9 +69,14 @@
     <div class="container" id="wish-list">
       <table class="table">
         <thead>
-          <tr>
-            <th id="short-list-header">Wish List</th>
-          </tr>
+          <div class="row">
+            <div class="col-6">
+                <span id="short-list-header"> Edit </span>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-success btn-block" id="add-item-btn">add +</button>
+            </div>
+          </div>
         </thead>
         <tbody id="bucket-list-table">
         </tbody>
@@ -87,15 +89,16 @@
         <h4 id="item-data-name"></h4>
         <h6 id="item-data-description"></h6>
       </div>
+
       <div id="item-data-location-container">
         <div id="item-data-location-name"></div>
         <div id="item-data-location-map"></div>
       </div>
-
     </div>
 
     <div id="usernotify-modal">
-      <div id="usernotify-message"></div>
+      <div id="usernotify-message">
+      </div>
       <hr>
       <div id="usernotify-button-container">
         <button id="usernotify-button" type="submit">Ok</button>
@@ -103,67 +106,76 @@
     </div>
 
     <!----   Add / Edit item modal --->
-    <div id="edit-div">        
-      <div class="container">
-        <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="container">
-                <div class="row mt-4">
-                  <div class="col-sm-2">              
-                    Item Name:
-                  </div>
-                  <div class="col-sm-10"> 
-                                  <input class="form-control" id="item-input" type="text"/>
-                              </div>
-                          </div>
-                          <div class="row mt-4">
-                              <div class="col-sm-2">              
-                                  Description:
-                              </div>
-                              <div class="col-sm-10"> 
-                                  <input class="form-control" id="item-description" type="text"/>
-                              </div>
-                          </div>
-                          <div class="row mt-4">
-                              <div class="col-sm-2">              
-                                  Location Type:
-                              </div>
-                              <div class="col-sm-10">
-                                  <input type="checkbox" name="loc-type1" value="Place"> A specific, unique place<br>
-                                  <input type="checkbox" name="loc-type2" value="Nearby"> Nearest place that matches<br>           
-                              </div>
-                          </div>
-                          <div class="row mt-4">
-                              <div class="col-sm-2">              
-                                  Location:
-                              </div>
-                              <div class="col-sm-10">
-                                  <input class="form-control" id="item-location" type="text"/>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-4">
-                      <div id="map-display">
-                      </div>
-                  </div>
+      <div class="container" id="edit-div">
+      <h1 id="edit-item-header" style="text-align:center">Edit item</h1>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="container" id="edit-input-div">
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                Item Name:
+                </div>
+
+                <div class="col-sm-10"> 
+                <input class="form-control" id="item-input" type="text"/>
+                </div>
               </div>
-              <div class="row justify-content-between">
-                  <div class="col-sm-2">
-                      <button type="button" class="btn btn-warning btn-block" id="add-item-cancel">Cancel</button>
-                  </div>
-                  <div class="col-sm-2">
-                      <button type="button" class="btn btn-primary btn-block" id="add-item-save">Save</button>
-                  </div>
+              
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Description:
+                </div>
+                
+                <div class="col-sm-10"> 
+                  <input class="form-control" id="item-description" type="text"/>
+                </div>
               </div>
+                          
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Location Type:
+                </div>
+                              
+                <div class="col-sm-10">
+                  <input type="checkbox" name="loc-type1" value="Place"> A specific, unique place<br>
+                  <input type="checkbox" name="loc-type2" value="Nearby"> Nearest place that matches<br>           
+                </div>
+              </div>
+              
+              <div class="row mt-4">
+                <div class="col-sm-2">              
+                  Location:
+                </div>
+                <div class="col-sm-10">
+                  <input class="form-control" id="item-location" type="text"/>
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="reference-info" style="display:none">
-              <span id="map-lat">0</span>
-              <span id="map-lng">0</span>
-              <span id="item-index">0</span>
+          
+          <div class="col-sm-4">
+            <div id="map-display">
+            </div>
           </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-warning btn-block" id="add-item-cancel">Cancel</button>
+          </div>
+          
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-primary btn-block" id="add-item-save">Save</button>
+          </div>
+        </div>
       </div>
+      
+      <div id="reference-info" style="display:none">
+        <span id="map-lat">0</span>
+        <span id="map-lng">0</span>
+        <span id="item-index">0</span>
+      </div>
+
   </body>
 
   <!-- <<<<<javaScript Links>>>>> -->

@@ -16,6 +16,10 @@ function showInfoMessage(msg) {
   modelDiv.css("display","block");
 }
 
+$("#add-item-btn").on("click",function(event) {
+  
+});
+
 $("#usernotify-button").on("click",function(event) {
   modelDiv.css("display","none");
 });
