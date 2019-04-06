@@ -119,7 +119,19 @@ function displayMyList()
 
     for (var i=0; i < dbUserBucketList.length; i++) {
         var newListRow = $("<tr>");
+
+        // First column of every row will be a set of buttons.
         var newListColumn = $("<td>");
+        var newButtonDiv = $("<div>");
+        var wishButton = $("<button>");
+        wishButton.addClass('cancel');
+        wishButton.text('X');
+        newButtonDiv.append(wishButton);
+        newListColumn.append(newButtonDiv);
+        newListRow.append(newListColumn);
+
+        // Second column of the row will be the wish (title).
+        newListColumn = $("<td>");
         newListColumn.text(dbUserBucketList[i].wish);
         newListRow.append(newListColumn);
         listSection.append(newListRow);

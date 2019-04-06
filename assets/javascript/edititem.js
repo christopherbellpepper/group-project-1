@@ -40,7 +40,10 @@ function setMap(location) {
 }
 
 function editItem(itemIndex) {
-    if (itemIndex < 0 || itemIndex >= dbUserBucketList.length) {
+  console.log("editItem",itemIndex);
+  $("#edit-div").css("display","block");
+
+  if (itemIndex < 0 || itemIndex >= dbUserBucketList.length) {
     var itemInfo = {};
   }
   else {
@@ -73,16 +76,19 @@ function editItem(itemIndex) {
   }
 }
 
+// When the user changes the value on the field 
 $("#item-location").on("change", function(event) {
   console.log("Item Location Field changed",event);
   console.log("New Value",$("#item-location").val());
   setMap($("#item-location").val());
 });
 
+// Handle when the user clicks 'cancel' on the edit modal
 $("#add-item-cancel").on("click", function(event) {
   $("#edit-div").css("display","none");
 });
 
+// Handle when the user clicks 'save' on the edit modal
 $("#add-item-save").on("click", function(event) {
   var storedItemIndex = $("item-index").text();
   if (isEmptyOrSpaces(storedItemIndex)) {
@@ -127,4 +133,5 @@ $("#add-item-save").on("click", function(event) {
   }
 
   dbWriteFullList(newList);
+  $("#edit-div").css("display","none");
 });
